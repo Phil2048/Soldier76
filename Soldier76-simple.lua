@@ -89,6 +89,18 @@ function OnEvent (event, arg, family)
         end
     end
 
+    -- 一键滑步
+    if family == "mouse" and event == "MOUSE_BUTTON_PRESSED" and arg == 6 then
+        OutputLogMessage("滑步\n")
+        ReleaseKey("w")
+        Sleep(10 + math.random(10, 15))
+        PressAndReleaseKey("c")
+        Sleep(10 + math.random(10, 15))
+        PressAndReleaseKey("w")
+        Sleep(10 + math.random(10, 15))
+        PressAndReleaseKey("c")
+    end
+
     -- 配置文件切换时清理状态
     if event == "PROFILE_DEACTIVATED" then
         State.G1 = false
